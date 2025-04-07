@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TaraLets</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles/signin.css">
+    <script defer src="script/signin.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <img src="images/logo.png" alt="TaraLets" class="logo">
+        <h2>Welcome Back to TaraLets</h2>
+        <p>Enter your email and password to continue.</p>
+
+        <form>
+            <label for="email">Email</label>
+            <div class="input-wrapper">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Enter your email address" required>
+            </div>
+        
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+        
+            <div class="options">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+        
+            <button type="button" class="btn" onclick="window.location.href='dashboard.html'">Sign in</button>
+<div class="g_signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+
+        </form>
+        
+        <div class="divider">Or login with</div>
+        
+        <div class="social-login">
+            <button class="google-btn">
+                <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google Logo">
+                Google
+            </button>
+            
+            <button class="facebook-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook Logo">
+                Facebook
+            </button>
+        </div>
+        
+
+        <div class="back-home">
+            <a href="index.html">Back to Homepage</a>
+        </div>
+
+        <p class="register-text">Don’t have an account? <a href="signup.html">Register</a></p>
+    </div>
+</body>
+</html>
