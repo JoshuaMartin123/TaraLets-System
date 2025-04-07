@@ -1,0 +1,228 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f7fc;
+    margin: 0;
+}
+
+/* Login Container */
+.login-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 360px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-bottom: 5px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Labels */
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-align: left;
+    display: block;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input Fields */
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    background: white;
+}
+
+.input-wrapper i {
+    color: #888;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.input-wrapper input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+}
+
+/* Options */
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.options a {
+    text-decoration: none;
+    color: #007BFF;
+    transition: color 0.3s;
+}
+
+.options a:hover {
+    color: #0056b3;
+}
+
+/* Button Styling */
+.btn {
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Divider */
+.divider {
+    margin: 15px 0;
+    font-size: 12px;
+    color: #888;
+    position: relative;
+    text-align: center;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #ddd;
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+/* Social Login Container */
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Social Buttons Base */
+.google-btn, .facebook-btn {
+    border: 1px solid #ccc;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 500;
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+    transition: all 0.3s ease, transform 0.2s ease;
+    height: 45px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.google-btn img, .facebook-btn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Google Button Hover */
+.google-btn:hover {
+    background: #dadcddd8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Facebook Button Hover */
+.facebook-btn:hover {
+    background: #1877F2;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(24, 119, 242, 0.3);
+}
+
+/* Register */
+.register-text {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.register-text a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.register-text a:hover {
+    color: #0056b3;
+}
+
+/* Back to Home */
+.back-home {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.back-home a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.back-home a:hover {
+    color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .login-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
