@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaraLets - Travel by Mood</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<style>
+    :root {
+            --bolt-primary: #2d2dff;
+            --bolt-secondary: #00b0ff;
+            --bolt-accent: #ffc107;
+            --bolt-dark: #1a1a2e;
+            --bolt-light: #f8f9fa;
+            --bolt-success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: 60px;
+        }
+        
+        .logo h1 {
+            color: var(--bolt-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--bolt-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--bolt-primary);
+        }
+
+        .nav-links a.active {
+            color: #2d2dff; /* example */
+        }
+        
+        .cta-buttons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--bolt-primary);
+            color: var(--bolt-primary);
+            background: transparent;
+            margin-right: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--bolt-primary);
+            color: white;
+        }
+        
+        .btn-primary {
+            background-color: var(--bolt-primary);
+            color: white;
+            border: 2px solid var(--bolt-primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: #1a1aff;
+            border-color: #1a1aff;
+        }
+        
+        .hero {
+            padding: 10rem 5% 5rem;
+            background: linear-gradient(135deg, #f6f7ff 0%, #eef0ff 100%);
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            height: 500px;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--bolt-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2.5rem;
+        }
+        
+        .search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  background-color: var(--bolt-primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-bar:hover {
+  background-color: #005bb5; /* fallback hover color */
+  transform: scale(1.03);
+}
+
+.search-bar:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+        
+        
+        
+        .features {
+            padding: 5rem 5%;
+            background-color: white;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h3 {
+            font-size: 2rem;
+            color: var(--bolt-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--bolt-light);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--bolt-primary);
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--bolt-dark);
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        .how-it-works {
+            padding: 5rem 5%;
+            background-color: #f9f9ff;
+        }
+        
+        .steps-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 3px;
+            background-color: var(--bolt-secondary);
+            z-index: 1;
+        }
+        
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--bolt-primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            border: 3px solid var(--bolt-secondary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--bolt-dark);
+        }
+        
+        .step p {
+            color: #666;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+        
+        .testimonials {
+            padding: 5rem 5%;
+            background-color: white;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--bolt-light);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            color: rgba(0, 0, 0, 0.05);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 1rem;
+            overflow: hidden;
+        }
+        
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .user-details h5 {
+            font-size: 1rem;
+            color: var(--bolt-dark);
+        }
+        
+        .user-details p {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: normal;
+            margin: 0;
+        }
+        
+        .rating {
+            color: var(--bolt-accent);
+            margin-top: 0.3rem;
+        }
+        
+        .download {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, var(--bolt-primary) 0%, var(--bolt-secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .download-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .download h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .download p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .cta-large {
+            font-size: 1.3rem;
+            padding: 1rem 2.5rem;
+            margin-top: 1rem;
+        }
+        
+        /* Footer General Styling */
+.footer {
+    background-color: #f5f5f5; /* Soft warm gray */
+    color: #333;
+    padding: 50px 10%;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Top Section */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-top h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #1e3a8a; /* Deep navy */
+}
+
+.footer-top p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Newsletter Section */
+.footer-subscribe {
+    text-align: center;
+    background: #ffebda; /* Soft orange background */
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.footer-subscribe h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1e3a8a;
+}
+
+.footer-subscribe input {
+    padding: 12px;
+    width: 50%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.footer-subscribe button {
+    background: #1e3a8a; /* Deep navy */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-subscribe button:hover {
+    background: #294bb5;
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+.footer-links div {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-links h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ff7b54;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: #1e3a8a;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 8px 0;
+}
+
+.footer-links ul li a {
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links ul li a:hover {
+    color: #ff7b54; /* Warm orange accent */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+    color: #777;
+}
+
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--bolt-primary);
+        }
+        
+        
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--bolt-primary);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+            
+            .steps::before {
+                display: none;
+            }
+            
+            .step {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero {
+                padding-top: 8rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .search-bar {
+                flex-direction: column;
+                border-radius: 12px;
+            }
+            
+            .search-bar input {
+                border-radius: 12px 12px 0 0;
+            }
+            
+            .search-bar button {
+                padding: 1rem;
+                border-radius: 0 0 12px 12px;
+            }
+            
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .app-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+
+        .app-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 3.5rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.app-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f5f5f5;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 360px;
+  height: 160px;
+  color: white;
+}
+
+.app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.app-card i {
+  font-size: 2rem;
+}
+
+/* Custom card themes */
+.explore {
+  background-color: #FF7F50; /* Coral */
+}
+
+.plan {
+  background-color: #20B2AA; /* LightSeaGreen */
+}
+
+.go {
+  background-color: #6A5ACD; /* SlateBlue */
+}
+
+.card-text span {
+  font-size: 0.8rem;
+  display: block;
+}
+
+.card-text strong {
+  font-size: 1.1rem;
+}
+
+.loader {
+  width: 44.8px;
+  height: 44.8px;
+  color: #554cb5;
+  position: relative;
+  background: radial-gradient(11.2px, currentColor 94%, #0000);
+}
+
+.loader:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(10.08px at bottom right, #0000 94%, currentColor) top left,
+    radial-gradient(10.08px at bottom left, #0000 94%, currentColor) top right,
+    radial-gradient(10.08px at top right, #0000 94%, currentColor) bottom left,
+    radial-gradient(10.08px at top left, #0000 94%, currentColor) bottom right;
+  background-size: 22.4px 22.4px;
+  background-repeat: no-repeat;
+  animation: loader 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+}
+
+@keyframes loader {
+  33% {
+    inset: -11.2px;
+    transform: rotate(0deg);
+  }
+  66% {
+    inset: -11.2px;
+    transform: rotate(90deg);
+  }
+  100% {
+    inset: 0;
+    transform: rotate(90deg);
+  }
+}
+</style>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img
+            src="images/logo.png"
+            class="logo-icon"
+            alt="Logo"/>
+        <h1>TaraLets</h1>
+      </div>
+
+      <button class="hamburger">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#home" class ="active">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#footer">Contact us</a></li>
+      </ul>
+
+      <div class="cta-buttons">
+        <a href="signin.html" class="btn btn-outline">Log In</a>
+        <a href="signup.html" class="btn btn-primary">Get Started</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Let Your Mood Choose the Adventure</h2>
+      <p>TaraLets is your travel buddy platform. Discover trips, tours, and hidden gems here in the Philippines, based on how you feel!</p>
+
+      <button class="search-bar" onclick="window.location.href='signin.html'">
+        Get Started Now
+      </button>
+      
+
+      <div class="app-cards">
+        <!-- Let's Explore Card -->
+        <div class="app-card explore">
+          <i class="fas fa-compass"></i>
+          <div class="card-text">
+            <span>Lets Explore</span>
+            <strong>Discover new destinations and hidden gems.</strong>
+          </div>
+        </div>
+      
+        <!-- Let's Plan Card -->
+        <div class="app-card plan">
+          <i class="fas fa-map-marked-alt"></i>
+          <div class="card-text">
+            <span>Lets Plan</span>
+            <strong>Seamlessly create and customize your trips.</strong>
+          </div>
+        </div>
+      
+        <!-- Let's Go Card -->
+        <div class="app-card go">
+          <i class="fas fa-rocket"></i>
+          <div class="card-text">
+            <span>Lets Go</span>
+            <strong>Embark on unforgettable journeys with ease.</strong>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="section-title">
+      <h3>Why TaraLets?</h3>
+      <p>Personalized travel suggestions powered by mood, preferences, and smart data.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-smile-beam"></i></div>
+        <h4>Mood-Based Trips</h4>
+        <p>Feeling adventurous or mellow? TaraLets curates activities based on your emotions.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h4>Location-Aware</h4>
+        <p>Get suggestions based on where you are — or where you’re going next.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-brain"></i></div>
+        <h4>Smart Tours Matching</h4>
+        <p>Advanced algorithms learn your preferences and suggest only what fits you best.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-cloud-sun"></i></div>
+        <h4>Weather-Ready Plans</h4>
+        <p>Rain or shine, TaraLets recommends activities that suit the current conditions.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+        <h4>Budget-Friendly</h4>
+        <p>Filter suggestions based on your budget, travel companions, or duration.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-route"></i></div>
+        <h4>Map Integration</h4>
+        <p>Seamlessly plan and navigate your adventures with Google Maps integration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-title">
+      <h3>How It Works</h3>
+      <p>From mood to map in just a few taps.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h4>Set Your Mood</h4>
+        <p>Open the app, tell us how you feel, and what you’re up for.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>Get Smart Suggestions</h4>
+        <p>Analyzes your preferences, mood, location, and weather to recommend the best activities.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Customize & Explore</h4>
+        <p>Add companions, budget, or travel dates to refine your trip.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h4>Go & Enjoy</h4>
+        <p>Follow your personalized itinerary and discover something amazing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="section-title">
+      <h3>Testimonials</h3>
+      <p>See what travelers are saying about TaraLets</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>I had no idea what to do on my solo trip. TaraLets read my mood and planned the perfect day for me!</p>
+        <div class="user-info">
+          <img src="" alt="User" />
+          <h5>Nicole A.</h5>
+          <p>Solo Traveler</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>It helped me and my girlfriend discover hidden spots in Cebu we never would've found on our own.</p>
+        <div class="user-info">
+          <img src="" alt="User" />
+          <h5>Leo R.</h5>
+          <p>Couple on Vacation</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>We used it for our barkada trip — we had a blast doing activities we all enjoyed. No stress at all!</p>
+        <div class="user-info">
+          <img src="" alt="User" />
+          <h5>Jasmin D.</h5>
+          <p>Group Traveler</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="download" id ="footer">
+    <div class="download-content">
+      <h3>Where Will Your Mood Take You?</h3>
+      <p>Try TaraLets today and let the journey begin — based on how you feel!</p>
+      <a href="#home" class="btn btn-primary cta-large">Start Exploring</a>
+    </div>
+  </section>
+
+  <footer class="footer" id = "footer">
+    <div class="footer-top">
+        <div>
+            <h3>TARALETS</h3>
+            <p>Your ultimate travel companion for seamless and enjoyable journeys.</p>
+        </div>
+        <div>
+            <p><strong>Email:</strong> support@taralets.com</p>
+            <p><strong>Call:</strong> +63 900 123 4567</p>
+        </div>
+    </div>
+    <div class="footer-subscribe">
+        <h3>Stay Updated with Taralets</h3>
+        <input type="email" placeholder="Enter your email"> 
+        <button>Subscribe</button>
+    </div>
+    <div class="footer-links">
+        <div>
+            <h4>SERVICES</h4>
+            <ul>
+                <li><a href="#">Book a Ride</a></li>
+                <li><a href="#">Travel Packages</a></li>
+                <li><a href="#">Tour Guides</a></li>
+                <li><a href="#">Exclusive Deals</a></li>
+                <li><a href="#">Gift Cards</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>SUPPORT</h4>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Customer Support</a></li>
+                <li><a href="#">Report an Issue</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>ABOUT US</h4>
+            <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Why Taralets?</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Taralets. All rights reserved.</p>
+    </div>
+</footer>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

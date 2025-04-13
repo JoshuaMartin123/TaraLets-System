@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+            max-width: 90%;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .welcome-message {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px; /* Increased from 20px */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4285f4;
+        }
+
+        .name-fields {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px; /* Added spacing below name fields */
+        }
+
+        .name-fields .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .terms input {
+            width: auto;
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        .terms label {
+            margin-bottom: 0;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .terms a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #4285f4;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #3367d6;
+        }
+
+        .btn-google {
+            background-color: white;
+            color: #555;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-google:hover {
+            background-color: #f5f5f5;
+        }
+
+        .google-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #4285f4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Create your account</h1>
+        <p class="welcome-message">Join us today!</p>
+        
+        <form id="signupForm">
+            <div class="name-fields">
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input type="text" id="lastName" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Confirm password</label>
+                <input type="password" id="confirmPassword" required>
+            </div>
+            
+            <div class="terms">
+                <input type="checkbox" id="agreeTerms" required>
+                <label for="agreeTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Sign up</button>
+            
+            <button type="button" class="btn btn-google">
+                <img src="images/google.png" alt="Google logo" class="google-icon">
+                Sign up with Google
+            </button>
+            
+            <p class="login-link">Already have an account? <a href="signin.html">Log in</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            
+            // Basic password match validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (!agreeTerms) {
+                alert('You must agree to the terms and conditions');
+                return;
+            }
+            
+            // Here you would typically send this data to your server
+            console.log('Signup attempt with:', { 
+                firstName, 
+                lastName, 
+                email, 
+                password, 
+                agreeTerms 
+            });
+            
+            // For demo purposes, just show an alert
+            alert('Account created successfully! (This is just a demo)');
+        });
+        
+        document.querySelector('.btn-google').addEventListener('click', function() {
+            // This would typically redirect to your Google OAuth endpoint
+            console.log('Google sign-up clicked');
+            alert('Redirecting to Google sign-up (This is just a demo)');
+        });
+        
+        
+    </script>
+</body>
+</html>
