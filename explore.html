@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaraLets Dashboard</title>
+  <link rel="stylesheet" href="/css/explore.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img
+          src="images/logo.png"
+          class="logo-icon"
+          alt="Logo"
+        />
+        <span>TaraLets</span>
+      </div>
+       <nav class="menu">
+       <h4 class="nav-header">Menu</h4>
+       <a href="dashboard.html" onclick="setActive(this); loadContent('dashboard')">🏡 Dashboard</a>
+        <a href="explore.html" class="active" onclick="setActive(this); loadContent('explore')">🌍 Lets Explore</a>
+        <a href="plan.html" onclick="setActive(this); loadContent('plan')">🗓️ Lets Plan</a>
+        <h4 class="nav-header">Account</h4>
+        <a href="favorites.html" onclick="setActive(this); loadContent('favorites')">⭐ Favorite Tours</a>
+        <a href="history.html" onclick="setActive(this); loadContent('history')">📜 Tour History</a>
+        <a href="settings.html" onclick="setActive(this); loadContent('settings')">⚙️ Settings</a>
+       </nav>
+       <button class="logout" onclick="logout()">Log Out</button>
+    </aside>
+
+    <!-- Main Content Area -->
+      <div class="main-content">
+        <div class="header">
+          <h1>Lets Explore</h1>
+          <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search tour location or name here..."
+            />
+          </div>
+        </div>
+
+        <div class="categories-filters">
+            <div class="filter-chip active" onclick="filterTours('all')">All Tours</div>
+            <div class="filter-chip" onclick="filterTours('relaxed')">Relaxed</div>
+            <div class="filter-chip" onclick="filterTours('adventurous')">Adventurous</div>
+            <div class="filter-chip" onclick="filterTours('nostalgic')">Nostalgic</div>
+            <div class="filter-chip" onclick="filterTours('hangry')">Hangry</div>
+            <div class="filter-chip" onclick="filterTours('unwind')">Unwind</div>
+            <div class="filter-chip" onclick="filterTours('frustrated')">Frustrated</div>
+            <div class="filter-chip" onclick="filterTours('hopeless')">Hopeless</div>
+            <div class="filter-chip" onclick="filterTours('empowered')">Empowered</div>
+            <div class="filter-chip" onclick="filterTours('chilled')">Chilled</div>
+            <div class="filter-chip" onclick="filterTours('see-all')">See All</div>
+        </div>
+
+        <h2 class="section-title">Recommended Tours</h2>
+
+        <!-- Menu Items -->
+<div class="menu-items">
+  <!-- Boracay -->
+  <div class="menu-item" data-id="1">
+    <div class="image-container">
+      <img src="images/boracay.jpg" class="item-image" alt="image"/>
+      <button class="add-to-favorites" title="Add to Favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags">
+          <span class="item-tag">Relaxed</span>
+          <span class="item-tag budget-tag">₱15,000 Budget</span>
+        </div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Boracay Beach</h3>
+      <p class="item-description">Pass sa drawing? kulayan niyo na ang outing nyo dito sa boracay!</p>
+      <p class="item-location">Malay, Aklan</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To Favorite Tours</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Baguio -->
+  <div class="menu-item" data-id="2">
+    <div class="image-container">
+      <img src="images/baguio.jpg" class="item-image" alt="image"/>
+      <button class="add-to-favorites" title="Add to Favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Chilled</span>
+          <span class="item-tag budget-tag">₱5,000 Budget</span>
+        </div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Baguio City</h3>
+      <p class="item-description">Mainit ngayon eto na sign mo para mag-Baguio para iwas init ulo!</p>
+      <p class="item-location">Baguio City</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To Favorite Tours</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- La Union -->
+  <div class="menu-item" data-id="3">
+    <div class="image-container">
+      <img src="/images/la union.jpg" class="item-image"/>
+      <button class="add-to-favorites" title="Add to Favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Unwind</span>
+        <span class="item-tag budget-tag">₱8,000 Budget</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Sunset Bay Beach Resort</h3>
+      <p class="item-description">Wag ka nang mag-delulu, arat na lang dito sa Elyu!</p>
+      <p class="item-location">San Fernando, La Union</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To Favorite Tours</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mayon Volcano -->
+  <div class="menu-item" data-id="4">
+    <div class="image-container">
+      <img src="images/mayon.png" class="item-image"/>
+      <button class="add-to-favorites" title="Add to Favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Scenery</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Mayon Volcano</h3>
+      <p class="item-description">Ah malayo? Nakaya mo ngang mag-LDR ih</p>
+      <p class="item-location"><i class="fas fa-landmark fa-sm fa-fw"></i> province of Albay</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buypass Avenue -->
+  <div class="menu-item" data-id="5">
+    <div class="image-container">
+      <img src="images/bypass food.png" class="item-image"/>
+      <button class="add-to-favorites" title="Add to Favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Food Trip</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Buypass Avenue</h3>
+      <p class="item-description">Tara gastos, deserve mo yan bhie!</p>
+      <p class="item-location"><i class="fa fa-map-pin" style="color: red;" aria-hidden="true"></i> Guimba, Nueva Ecija</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gabaldon -->
+  <div class="menu-item" data-id="6">
+    <div class="image-container">
+      <img src="images/gabaldon.png" class="item-image"/>
+      <button class="add-to-favorites" title="Add to Favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Relaxed</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Gabaldon Falls</h3>
+      <p class="item-description">Vacant time mo? Arat na mag falls!</p>
+      <p class="item-location"> <i class="fa fa-location-arrow" style="color: #e64a19;" aria-hidden="true"></i> Gabaldon, Nueva Ecija</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Siargao -->
+<div class="menu-item" data-id="7">
+    <div class="iimage-container">
+      <img src="images/Siargao.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Surfing</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Siargao Island</h3>
+      <p class="item-description">Minsan lang to, baka next wave mo wala na!</p>
+      <p class="item-location">Surigao del Norte</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Palawan -->
+  <div class="menu-item" data-id="8">
+    <div class="image-container">
+      <img src="images/palawan.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Nature</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Palawan</h3>
+      <p class="item-description">Escape to paradise, hindi lang sa isip mo!</p>
+      <p class="item-location">Palawan</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Cebu -->
+  <div class="menu-item" data-id="9">
+    <div class="image-container">
+      <img src="images/cebu.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Cultural</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Cebu City</h3>
+      <p class="item-description">Lami diri! Bisan ang food, sulay na!</p>
+      <p class="item-location">Cebu</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Vigan -->
+  <div class="menu-item" data-id="10">
+    <div class="image-container">
+      <img src="images/Vigan.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Historical</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Vigan</h3>
+      <p class="item-description">Balik sa nakaraan, pero wag sa ex!</p>
+      <p class="item-location">Ilocos Sur</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Camiguin -->
+  <div class="menu-item" data-id="11">
+    <div class="image-container">
+      <img src="images/Camiguin.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hidden Gem</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Camiguin</h3>
+      <p class="item-description">Dami hot springs dito, baka dito ka na mag-init ng feelings?</p>
+      <p class="item-location">Camiguin</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Davao -->
+  <div class="menu-item" data-id="12">
+    <div class="image-container">
+      <img src="images/Davao.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Adventure</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Davao City</h3>
+      <p class="item-description">Lapit lang, kaya mo pa! Durian na lang kulang!</p>
+      <p class="item-location">Davao</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Batanes -->
+<div class="menu-item" data-id="13">
+    <div class="image-container">
+      <img src="images/batanes.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Scenic</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Batanes</h3>
+      <p class="item-description">Sobrang ganda dito, baka mahulog ka... sa view!</p>
+      <p class="item-location">Batanes</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Sagada -->
+  <div class="menu-item" data-id="14">
+    <div class="image-container">
+      <img src="images/sagada.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Chill</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Sagada</h3>
+      <p class="item-description">Time to move on? Dito mo mararamdaman yung peace!</p>
+      <p class="item-location">Mountain Province</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Enchanted River -->
+  <div class="menu-item" data-id="15">
+    <div class="image-container">
+      <img src="images/Enchanted.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Mystical</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Enchanted River</h3>
+      <p class="item-description">Baka dito mo mahanap ang forever mo, kung hindi, fish nalang.</p>
+      <p class="item-location">Surigao del Sur</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Taal Volcano -->
+  <div class="menu-item" data-id="16">
+    <div class="image-container">
+      <img src="images/taal.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Adventure</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Taal Volcano</h3>
+      <p class="item-description">Ang init dito, parang love mo sa kanya.</p>
+      <p class="item-location">Batangas</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Hundred Islands -->
+  <div class="menu-item" data-id="17">
+    <div class="image-container">
+      <img src="images/hundred.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Island Hopping</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Hundred Islands</h3>
+      <p class="item-description">Dami island dito, pero ikaw lang gusto ko makasama.</p>
+      <p class="item-location">Pangasinan</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Banaue Rice Terraces -->
+  <div class="menu-item" data-id="18">
+    <div class="image-container">
+      <img src="images/Banaue Rice.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Heritage</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Banaue Rice Terraces</h3>
+      <p class="item-description">Lakad pa more! Effort is worth the view.</p>
+      <p class="item-location">Ifugao</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Kawasan Falls -->
+<div class="menu-item" data-id="19">
+    <div class="image-container">
+      <img src="images/kawasan.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Adventure</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Kawasan Falls</h3>
+      <p class="item-description">Talon na, bes! Sa tubig, hindi sa conclusions.</p>
+      <p class="item-location">Cebu</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Chocolate Hills -->
+  <div class="menu-item" data-id="20">
+    <div class="image-container">
+      <img src="images/Chocolate.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Natural Wonder</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Chocolate Hills</h3>
+      <p class="item-description">No, di siya edible. Pero sweet pa rin dito!</p>
+      <p class="item-location">Bohol</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mount Pulag -->
+  <div class="menu-item" data-id="21">
+    <div class="image-container">
+      <img src="images/Mount Pulag.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hiking</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Mount Pulag</h3>
+      <p class="item-description">Sa taas ng bundok na 'to, baka dito ka rin umangat sa buhay!</p>
+      <p class="item-location">Benguet</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Anawangin Cove -->
+  <div class="menu-item" data-id="22">
+    <div class="image-container">
+      <img src="images/Anawangin Cove.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Camping</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Anawangin Cove</h3>
+      <p class="item-description">Dito walang signal, kaya sure akong wala kang ka-chat!</p>
+      <p class="item-location">Zambales</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Samal Island -->
+  <div class="menu-item" data-id="23">
+    <div class="image-container">
+      <img src="images/samal.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Beach</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Samal Island</h3>
+      <p class="item-description">Sa dami ng beach dito, baka ikaw na lang kulang!</p>
+      <p class="item-location">Davao del Norte</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Hinatuan Enchanted River -->
+  <div class="menu-item" data-id="24">
+    <div class="image-container">
+      <img src="images/Hinatuan Enchanted River.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hidden Gem</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Hinatuan Enchanted River</h3>
+      <p class="item-description">Parang ikaw, mysterious pero enchanting!</p>
+      <p class="item-location">Surigao del Sur</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Siquijor -->
+  <div class="menu-item" data-id="25">
+    <div class="image-container">
+      <img src="images/Siquijor.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Mystical</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Siquijor</h3>
+      <p class="item-description">Takot ka sa aswang? Hindi naman sila mang-aagaw, unlike some people.</p>
+      <p class="item-location">Siquijor</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Pagsanjan Falls -->
+<div class="menu-item" data-id="26">
+    <div class="image-container">
+      <img src="images/Pagsanjan Falls.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Thrill</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Pagsanjan Falls</h3>
+      <p class="item-description">Baka ito na yung waterfall na babagsakan ng feelings mo!</p>
+      <p class="item-location">Laguna</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Nacpan Beach -->
+  <div class="menu-item" data-id="27">
+    <div class="image-container">
+      <img src="images/Nacpan Beach.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hidden Gem</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Nacpan Beach</h3>
+      <p class="item-description">Kasing ganda ng sunset dito yung love story natin... charot!</p>
+      <p class="item-location">El Nido, Palawan</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ayala museum -->
+  <div class="menu-item" data-id="28">
+    <div class="image-container">
+      <img src="images/Ayala Museum.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Heritage</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Ayala Museum</h3>
+      <p class="item-description">Dito ka babalik sa nakaraan—pero sa history, hindi sa ex!</p>
+      <p class="item-location">makati City, Manila</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Camiguin Island -->
+  <div class="menu-item" data-id="29">
+    <div class="image-container">
+      <img src="images/Camiguin Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Relax</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Camiguin Island</h3>
+      <p class="item-description">Pahinga ka muna, bes! Dito sure na stress-free ka.</p>
+      <p class="item-location">Camiguin</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mount Apo -->
+  <div class="menu-item" data-id="30">
+    <div class="image-container">
+      <img src="images/mount apo.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Extreme</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Mount Apo</h3>
+      <p class="item-description">Kung kaya mong mag-climb dito, kaya mo rin mag-move on!</p>
+      <p class="item-location">Davao</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Daku Island -->
+  <div class="menu-item" data-id="31">
+    <div class="image-container">
+      <img src="images/Daku Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Island Vibe</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Daku Island</h3>
+      <p class="item-description">Dito, hindi lang trip mo ang lalalim—pati feelings mo!</p>
+      <p class="item-location">Siargao</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Caramoan Islands -->
+  <div class="menu-item" data-id="32">
+    <div class="image-container">
+      <img src="images/Caramoan Islands.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Untouched</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Caramoan Islands</h3>
+      <p class="item-description">Kung hanap mo ay peace at quiet, ito na 'yun!</p>
+      <p class="item-location">Camarines Sur</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- mount pinatubo -->
+<div class="menu-item" data-id="33">
+    <div class="image-container">
+      <img src="images/pinatubo.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Adventure</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">mount pinatubo</h3>
+      <p class="item-description">Baka mas hot pa ‘to kaysa sa last mong relationship!</p>
+      <p class="item-location">botalan zambales</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- bolinao falls -->
+  <div class="menu-item" data-id="34">
+    <div class="image-container">
+      <img src="images/bolinao.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Island Hopping</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Bolinao Falls</h3>
+      <p class="item-description">Sobrang dami ng isla, baka mahanap mo na rin sarili mo.</p>
+      <p class="item-location">Bolinao, Pangasinan</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tarlac Falls -->
+  <div class="menu-item" data-id="35">
+    <div class="image-container">
+      <img src="images/pias falls.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Mystical</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Tarlac Pias Falls</h3>
+      <p class="item-description">Kasing lalim ng feelings mo para sa taong ‘di ka mahal.</p>
+      <p class="item-location">tarlac</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!--Intramuros -->
+  <div class="menu-item" data-id="36">
+    <div class="image-container">
+      <img src="images/intramuros.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Camping</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Intramuros manila cathedral</h3>
+      <p class="item-description">Dito ka na lang mag-camp, wag sa feelings mo.</p>
+      <p class="item-location">Manila</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tubbataha Reefs -->
+  <div class="menu-item" data-id="37">
+    <div class="image-container">
+      <img src="images/Tubbataha Reefs.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Diving</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Tubbataha Reefs</h3>
+      <p class="item-description">Dito pwede ka nang lumangoy palayo sa red flags.</p>
+      <p class="item-location">Sulu Sea</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Dinagat Islands -->
+  <div class="menu-item" data-id="38">
+    <div class="image-container">
+      <img src="images/Dinagat Islands.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Escape</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Dinagat Islands</h3>
+      <p class="item-description">Dito ka na lang magtago, baka di ka na mahanap ng stress mo!</p>
+      <p class="item-location">Caraga</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Sohoton Cove -->
+  <div class="menu-item" data-id="39">
+    <div class="image-container">
+      <img src="images/Sohoton Cove.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hidden Treasure</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Sohoton Cove</h3>
+      <p class="item-description">Mala-fairy tale ang view, parang ikaw at siya dati.</p>
+      <p class="item-location">Surigao del Norte</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- pinsal falls -->
+<div class="menu-item" data-id="40">
+    <div class="image-container">
+      <img src="images/pinsal.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Surfing</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Pinsal falls</h3>
+      <p class="item-description">Kung gusto mo ng waves na hindi nag-ghost, dito ka na!</p>
+      <p class="item-location">lupao</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- puerto galero -->
+  <div class="menu-item" data-id="41">
+    <div class="image-container">
+      <img src="images/puerto galera.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Nature</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">puerto galera</h3>
+      <p class="item-description">Isla na puno ng adventure, baka dito mo na rin mahanap forever mo.</p>
+      <p class="item-location">orientral Mindanao</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!--mount kanlaon -->
+  <div class="menu-item" data-id="42">
+    <div class="image-container">
+      <img src="images/kanlaon.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hiking</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">kanlaon</h3>
+      <p class="item-description">Sobrang taas nito, pero mas mataas pa rin expectations mo.</p>
+      <p class="item-location">negros</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Kalanggaman Island -->
+  <div class="menu-item" data-id="43">
+    <div class="image-container">
+      <img src="images/Kalanggaman Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Secluded</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Kalanggaman Island</h3>
+      <p class="item-description">White sand, clear waters, walang toxic. Swak na bakasyon!</p>
+      <p class="item-location">Leyte</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Malapascua Island -->
+  <div class="menu-item" data-id="44">
+    <div class="image-container">
+      <img src="images/Malapascua Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Diving</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Malapascua Island</h3>
+      <p class="item-description">Dito mo mararanasan ang diving na hindi nakakatakot, unlike sa love life mo.</p>
+      <p class="item-location">Cebu</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Paoay Sand Dunes -->
+  <div class="menu-item" data-id="45">
+    <div class="image-container">
+      <img src="images/Paoay Sand Dunes.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Extreme</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Paoay Sand Dunes</h3>
+      <p class="item-description">Kung gusto mo ng matinding adventure, ito na ‘yun!</p>
+      <p class="item-location">Ilocos Norte</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Aguian View Deck -->
+  <div class="menu-item" data-id="46">
+    <div class="image-container">
+      <img src="images/Banaue, Ifugao.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Cultural</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Aguian View Deck</h3>
+      <p class="item-description">Handmade beauty na mas matibay pa sa tiwala mo.</p>
+      <p class="item-location">Banaue, Ifugao</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Cagbalete Island -->
+<div class="menu-item" data-id="47">
+    <div class="image-container">
+      <img src="images/Cagbalete Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hidden Gem</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Cagbalete Island</h3>
+      <p class="item-description">Tahimik na isla, para sa mga gusto munang mag-disappear.</p>
+      <p class="item-location">Mauban, Quezon</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Sila Island -->
+  <div class="menu-item" data-id="48">
+    <div class="image-container">
+      <img src="images/Sila Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Pink Beach</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Sila Island</h3>
+      <p class="item-description">Oo, may pink beach din tayo. Hindi lang sa Maldives yan!</p>
+      <p class="item-location">Northern Samar</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Panimahawa Ridge -->
+  <div class="menu-item" data-id="49">
+    <div class="image-container">
+      <img src="images/Panimahawa Ridge.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hiking</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Panimahawa Ridge</h3>
+      <p class="item-description">Clouds sa umaga, city lights sa gabi. Perfect for soul-searching!</p>
+      <p class="item-location">Bukidnon</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Pampanga -->
+  <div class="menu-item" data-id="50">
+    <div class="image-container">
+      <img src="images/pampanga river.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Mystical</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Pampanga River</h3>
+      <p class="item-description">Napakalalim, pero hindi kasing lalim ng hugot mo.</p>
+      <p class="item-location">Pampanga</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tikling Island -->
+  <div class="menu-item" data-id="51">
+    <div class="image-container">
+      <img src="images/Tikling Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Untouched Beauty</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Tikling Island</h3>
+      <p class="item-description">Isang isla na walang masyadong tao. Perfect kung gusto mong magtago.</p>
+      <p class="item-location">Sorsogon</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Manjuyod Sandbar -->
+  <div class="menu-item" data-id="52">
+    <div class="image-container">
+      <img src="images/Manjuyod Sandbar.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">The Maldives of the Philippines</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Manjuyod Sandbar</h3>
+      <p class="item-description">May Maldives na tayo, pero mas affordable!</p>
+      <p class="item-location">Negros Oriental</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Seco Island -->
+  <div class="menu-item" data-id="53">
+    <div class="image-container">
+      <img src="images/Seco Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Kite Surfing</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Seco Island</h3>
+      <p class="item-description">Para sa mahilig sa hangin, dito hindi lang bagyo ang malakas.</p>
+      <p class="item-location">Antique</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Sumilon island-->
+<div class="menu-item" data-id="54">
+    <div class="image-container">
+      <img src="images/sumilon.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Sandbar Paradise</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Sumilon island</h3>
+      <p class="item-description">Ang haba ng sandbar, parang pasensya mo sa toxic.</p>
+      <p class="item-location">cebu</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Fortune Island -->
+  <div class="menu-item" data-id="55">
+    <div class="image-container">
+      <img src="images/Fortune Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Greek Vibes</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Fortune Island</h3>
+      <p class="item-description">Feeling mo nasa Greece, pero di ka lumipad ng eroplano.</p>
+      <p class="item-location">Nasugbu, Batangas</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Lake Holon -->
+  <div class="menu-item" data-id="56">
+    <div class="image-container">
+      <img src="images/Lake Holon.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Camping Spot</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Lake Holon</h3>
+      <p class="item-description">Tahimik dito, di tulad ng group chat nyo.</p>
+      <p class="item-location">T'boli, South Cotabato</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Cuatro Islas -->
+  <div class="menu-item" data-id="57">
+    <div class="image-container">
+      <img src="images/Cuatro Islas.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Island Hopping</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Cuatro Islas</h3>
+      <p class="item-description">Apat na isla, apat na beses kang magpapasikat sa IG.</p>
+      <p class="item-location">Leyte</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Magpupungko Rock Pools -->
+  <div class="menu-item" data-id="58">
+    <div class="image-container">
+      <img src="images/Magpupungko Rock Pools.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Natural Pool</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Magpupungko Rock Pools</h3>
+      <p class="item-description">Di mo na kailangang mag-swimming pool, nature na mismo gumawa.</p>
+      <p class="item-location">Siargao</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Masungi Georeserve -->
+  <div class="menu-item" data-id="59">
+    <div class="image-container">
+      <img src="images/Masungi Georeserve.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Eco Adventure</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Masungi Georeserve</h3>
+      <p class="item-description">Hiking + Insta-worthy views = sulit na lakad!</p>
+      <p class="item-location">Rizal</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tangadan Falls -->
+  <div class="menu-item" data-id="60">
+    <div class="image-container">
+      <img src="images/Tangadan Falls.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Chill Spot</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Tangadan Falls</h3>
+      <p class="item-description">Magpatangay sa tubig, pero wag sa feelings.</p>
+      <p class="item-location">La Union</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Lets Plan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tawi-Tawi Bud Bongao -->
+<div class="menu-item" data-id="61">
+    <div class="image-container">
+      <img src="images/Bud Bongao.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hiking & Pilgrimage</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Bud Bongao</h3>
+      <p class="item-description">Saglit lang ang hike, pero life-changing ang view!</p>
+      <p class="item-location">Tawi-Tawi</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Laswitan Lagoon -->
+  <div class="menu-item" data-id="62">
+    <div class="image-container">
+      <img src="images/Laswitan Lagoon.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hidden Wonder</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Laswitan Lagoon</h3>
+      <p class="item-description">Waterfalls ba o dagat? Pareho!</p>
+      <p class="item-location">Surigao del Sur</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Panampangan Island -->
+  <div class="menu-item" data-id="63">
+    <div class="image-container">
+      <img src="images/Panampangan Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Longest Sandbar</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Panampangan Island</h3>
+      <p class="item-description">Dito lang may sandbar na parang walang katapusan!</p>
+      <p class="item-location">Tawi-Tawi</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Simala Shrine -->
+  <div class="menu-item" data-id="64">
+    <div class="image-container">
+      <img src="images/Simala Shrine.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Spiritual</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Simala Shrine</h3>
+      <p class="item-description">Mukhang castle, pero mas holy.</p>
+      <p class="item-location">Sibonga, Cebu</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Malalison Island -->
+  <div class="menu-item" data-id="65">
+    <div class="image-container">
+      <img src="images/Malalison Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Off-the-Beaten</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Malalison Island</h3>
+      <p class="item-description">Ganda ng tanawin, walang masyadong tao.</p>
+      <p class="item-location">Antique</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Blue Lagoon -->
+  <div class="menu-item" data-id="66">
+    <div class="image-container">
+      <img src="images/Blue Lagoon.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Tropical Escape</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Blue Lagoon</h3>
+      <p class="item-description">Dito mo lang makikita ang totoong crystal blue water.</p>
+      <p class="item-location">Pagudpud, Ilocos Norte</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mapanuepe Lake -->
+  <div class="menu-item" data-id="67">
+    <div class="image-container">
+      <img src="images/Mapanuepe Lake.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Camping Haven</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Mapanuepe Lake</h3>
+      <p class="item-description">Kamp tayo dito? Ganda ng reflections sa tubig.</p>
+      <p class="item-location">Zambales</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Entalula Beach -->
+<div class="menu-item" data-id="68">
+    <div class="image-container">
+      <img src="images/Entalula Beach.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Natural Pools</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Entalula Beach</h3>
+      <p class="item-description">Gusto mo ng infinity pool? Mas maganda to, gawa ni nature!</p>
+      <p class="item-location">El Nido Palawan</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Taraw Cliff -->
+  <div class="menu-item" data-id="69">
+    <div class="image-container">
+      <img src="images/Taraw Cliff.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Adventure</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Taraw Cliff</h3>
+      <p class="item-description">Mataas? Oo. Nakakatakot? Kaunti. Worth it? 100%!</p>
+      <p class="item-location">El Nido, Palawan</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Can-umantad Falls -->
+  <div class="menu-item" data-id="70">
+    <div class="image-container">
+      <img src="images/Can-umantad Falls.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hidden Falls</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Can-umantad Falls</h3>
+      <p class="item-description">Mas refreshing pa ‘to kaysa sa ex mo!</p>
+      <p class="item-location">Candijay, Bohol</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- White Beach -->
+  <div class="menu-item" data-id="71">
+    <div class="image-container">
+      <img src="images/White Beach.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">The Maldives of PH</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">White Beach</h3>
+      <p class="item-description">Ayaw gumastos sa Maldives? Dito ka na lang!</p>
+      <p class="item-location">Puerto Galera</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- white sand  and clear waters -->
+  <div class="menu-item" data-id="72">
+    <div class="image-container">
+      <img src="images/white sand  and clear waters.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Chill Vibes</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">white sand  and clear waters</h3>
+      <p class="item-description">Eto na ang sign mo para mag-river trek!</p>
+      <p class="item-location">Magalawa Island Zambales</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!--Underrated beaches-->
+  <div class="menu-item" data-id="73">
+    <div class="image-container">
+      <img src="images/Underrated beaches.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Sacred Lake</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Underrated beaches</h3>
+      <p class="item-description">Gusto mo ng soul-searching? Perfect ‘to!</p>
+      <p class="item-location">cebu</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Boquete island san antonio islands -->
+  <div class="menu-item" data-id="74">
+    <div class="image-container">
+      <img src="images/Boquete island san antonio islands.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Pink Sand</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Boquete island san antonio islands</h3>
+      <p class="item-description">May pink sand beach tayo, akala mo lang wala!</p>
+      <p class="item-location">Puerto galera</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Lantawan Peak -->
+<div class="menu-item" data-id="75">
+    <div class="image-container">
+      <img src="images/Lantawan Peak.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hiking</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Lantawan Peak</h3>
+      <p class="item-description">Para sa mga mahilig sa cloud 9... literal!</p>
+      <p class="item-location">Minglanilla, Cebu</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Nagsasa Cove -->
+  <div class="menu-item" data-id="76">
+    <div class="image-container">
+      <img src="images/Nagsasa Cove.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Secluded Beach</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Nagsasa Cove</h3>
+      <p class="item-description">Gusto mong maglayas saglit? Dito tayo!</p>
+      <p class="item-location">San Antonio, Zambales</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Kaparkan Falls -->
+  <div class="menu-item" data-id="77">
+    <div class="image-container">
+      <img src="images/Kaparkan Falls.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Cascading Falls</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Kaparkan Falls</h3>
+      <p class="item-description">Parang hagdan pero tubig ang bumababa!</p>
+      <p class="item-location">Abra</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Alona beach -->
+  <div class="menu-item" data-id="78">
+    <div class="image-container">
+      <img src="images/Alona beach.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Kite Surfing</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Alona beach</h3>
+      <p class="item-description">Feeling mo stranded ka pero sobrang saya!</p>
+      <p class="item-location">Bohol</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Kawa Hot Bath -->
+  <div class="menu-item" data-id="79">
+    <div class="image-container">
+      <img src="images/Kawa Hot Bath.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Relaxation</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Kawa Hot Bath</h3>
+      <p class="item-description">Mukhang lulutuin ka, pero sobrang relaxing!</p>
+      <p class="item-location">Tibiao, Antique</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Lake Pandin -->
+  <div class="menu-item" data-id="80">
+    <div class="image-container">
+      <img src="images/Lake Pandin.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Nature Trip</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Lake Pandin</h3>
+      <p class="item-description">Tahimik, maganda, at perfect para sa soul-searching!</p>
+      <p class="item-location">San Pablo, Laguna</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mount Halcon -->
+  <div class="menu-item" data-id="81">
+    <div class="image-container">
+      <img src="images/Mount halcon.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Cloud Nine</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Mount Halcon</h3>
+      <p class="item-description">Para kang nasa langit, pero pagod ka muna bago makarating!</p>
+      <p class="item-location">Oriental Mindoro</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- LimaSawa island -->
+<div class="menu-item" data-id="82">
+    <div class="image-container">
+      <img src="images/LimaSawa island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Pink Beach</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">LimaSawa island</h3>
+      <p class="item-description">Sabi nila rare ang pink sand… eto na oh!</p>
+      <p class="item-location">Southern Leyte</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Asik-Asik Falls -->
+  <div class="menu-item" data-id="83">
+    <div class="image-container">
+      <img src="images/Asik-Asik Falls.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hidden Falls</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Asik-Asik Falls</h3>
+      <p class="item-description">Parang jungle vibes, pero sobrang ganda ng tubig!</p>
+      <p class="item-location">Alamada, North Cotabato</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Lapalmera Mountain Ridge -->
+  <div class="menu-item" data-id="84">
+    <div class="image-container">
+      <img src="images/Lapalmera Mountain Ridge.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hiking Spot</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Lapalmera Mountain Ridge</h3>
+      <p class="item-description">Magdala ng jacket, baka hindi lang lamig ang maramdaman mo dito!</p>
+      <p class="item-location">Sultan kudarat</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Subic Safari -->
+  <div class="menu-item" data-id="85">
+    <div class="image-container">
+      <img src="images/Zoobic Safari.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Wildlife</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Zoobic Safari</h3>
+      <p class="item-description">Makakita ka ng tigers, pero wag kang tumakbo ha!</p>
+      <p class="item-location">Subic, Zambales</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Lake Sebu -->
+  <div class="menu-item" data-id="86">
+    <div class="image-container">
+      <img src="images/Lake Sebu.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Cultural Trip</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Lake Sebu</h3>
+      <p class="item-description">Kultura at kalikasan in one trip? Dito na tayo!</p>
+      <p class="item-location">South Cotabato</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bituin Cove Rock pool -->
+  <div class="menu-item" data-id="87">
+    <div class="image-container">
+      <img src="images/Bituin Cove Rock pool.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Natural Pools</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Bituin Cove Rock pool</h3>
+      <p class="item-description">Literal na pool na gawa ng kalikasan!</p>
+      <p class="item-location">el nido palawan</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Canlaon Volcano -->
+  <div class="menu-item" data-id="88">
+    <div class="image-container">
+      <img src="images/Canlaon Volcano.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Adventure</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Canlaon Volcano</h3>
+      <p class="item-description">Literal na hot spot! Pero ingat sa trail ha!</p>
+      <p class="item-location">Negros Oriental</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kapurpurawan Rock Formation -->
+<div class="menu-item" data-id="89">
+    <div class="image-container">
+      <img src="images/Kapurpurawan Rock Formation.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Rock Wonders</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Kapurpurawan Rock Formation</h3>
+      <p class="item-description">Parang nasa ibang bansa pero nasa Ilocos ka lang!</p>
+      <p class="item-location">Burgos, Ilocos Norte</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Cagayan de Oro White Water Rafting -->
+  <div class="menu-item" data-id="90">
+    <div class="image-container">
+      <img src="images/CDO White Water Rafting.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Extreme</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">CDO White Water Rafting</h3>
+      <p class="item-description">Para sa mga trip sumabak sa rapids! Walang atrasan!</p>
+      <p class="item-location">Cagayan de Oro</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Biri Rock Formations -->
+  <div class="menu-item" data-id="91">
+    <div class="image-container">
+      <img src="images/Biri Rock Formations.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Natural Wonders</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Biri Rock Formations</h3>
+      <p class="item-description">Nabuo ng dagat at hangin, pero parang art exhibit!</p>
+      <p class="item-location">Biri, Northern Samar</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Coron Island -->
+  <div class="menu-item" data-id="92">
+    <div class="image-container">
+      <img src="images/COron island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Island Getaway</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Coron Island</h3>
+      <p class="item-description">Sobrang lapit sa city pero parang ibang mundo!</p>
+      <p class="item-location">Palawan</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mount Bulusan -->
+  <div class="menu-item" data-id="93">
+    <div class="image-container">
+      <img src="images/Mount bulusan.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Sea of Clouds</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Mount Bulusan</h3>
+      <p class="item-description">Para sa mga gustong lumipad… nang walang wings!</p>
+      <p class="item-location">Sorsogon</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Seven Lakes of San Pablo -->
+  <div class="menu-item" data-id="94">
+    <div class="image-container">
+      <img src="images/Seven Lakes of San Pablo.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Lakeside Retreat</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Seven Lakes of San Pablo</h3>
+      <p class="item-description">Hindi lang isa, hindi dalawa… pito ‘yan!</p>
+      <p class="item-location">San Pablo, Laguna</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Buntod Reef Marine Sanctuary -->
+  <div class="menu-item" data-id="95">
+    <div class="image-container">
+      <img src="images/Buntod Reef Marine Sanctuary.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Snorkeling</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Buntod Reef Marine Sanctuary</h3>
+      <p class="item-description">Dito safe ang mga isda… at ikaw din!</p>
+      <p class="item-location">Masbate</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tinuy-an Falls -->
+<div class="menu-item" data-id="96">
+    <div class="image-container">
+      <img src="images/Tinuy-an Falls.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Waterfall Wonder</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Tinuy-an Falls</h3>
+      <p class="item-description">The "Little Niagara Falls of the Philippines" – swak sa IG posts mo!</p>
+      <p class="item-location">Bislig, Surigao del Sur</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Jomalig Island -->
+  <div class="menu-item" data-id="97">
+    <div class="image-container">
+      <img src="images/Jomalig Island.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Golden Beach</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Jomalig Island</h3>
+      <p class="item-description">Golden sand + crystal-clear waters = perfect island getaway!</p>
+      <p class="item-location">Quezon Province</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- mount Hibo Hibok -->
+  <div class="menu-item" data-id="98">
+    <div class="image-container">
+      <img src="images/mount Hibo Hibok.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Cultural Escape</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">mount Hibo Hibok</h3>
+      <p class="item-description">Serenity, culture, and breathtaking waterfalls all in one place!</p>
+      <p class="item-location">Camiguin</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- mount dulang dulang -->
+  <div class="menu-item" data-id="99">
+    <div class="image-container">
+      <img src="images/mount dulang dulang.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Maldives of PH</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Mount dulang dulang</h3>
+      <p class="item-description">Para kang nasa Maldives, pero budget-friendly!</p>
+      <p class="item-location">bukidnon</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- agusan river -->
+  <div class="menu-item" data-id="100">
+    <div class="image-container">
+      <img src="images/Agusan River.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Sandbar Paradise</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Agusan River</h3>
+      <p class="item-description">White sand + clear waters = tropical heaven!</p>
+      <p class="item-location">compostela valley</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Apo Reef Natural Park -->
+  <div class="menu-item" data-id="101">
+    <div class="image-container">
+      <img src="images/Apo Reef Natural Park.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Diving Haven</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Apo Reef Natural Park</h3>
+      <p class="item-description">Second largest reef in the world – dive into it!</p>
+      <p class="item-location">Occidental Mindoro</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Chico river -->
+  <div class="menu-item" data-id="102">
+    <div class="image-container">
+      <img src="images/Chico river.png" class="item-image"/>
+      <button class="add-to-favorites"><i class="fa fa-heart" aria-hidden="true"></i></button>
+      <div id="toast-message" class="toast hidden"></div>
+    </div>
+    <div class="item-details">
+      <div class="item-header">
+        <div class="item-tags"><span class="item-tag">Hidden Gem</span></div>
+        <span class="tour-rating"><i class="fa fa-star" aria-hidden="true"></i> 10/10</span>
+      </div>
+      <h3 class="item-name">Chico River</h3>
+      <p class="item-description">Crystal waters, rolling hills – parang Batanes ng Antique!</p>
+      <p class="item-location">Luzon</p>
+      <div class="item-actions">
+        <button class="add-to-gala">Add To My Gala List</button>
+        <button class="lets-plan">Let's Plan</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="scripts/explore.js"></script>
