@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaraLets - Travel by Mood</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img
+            src="images/logo.png"
+            class="logo-icon"
+            alt="Logo"/>
+        <h1>TaraLets</h1>
+      </div>
+
+      <button class="hamburger" title="Toggle Navigation Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#home" class ="active">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#footer">Contact us</a></li>
+      </ul>
+
+      <div class="cta-buttons">
+        <a href="signin.html" class="btn btn-outline">Log In</a>
+        <a href="signup.html" class="btn btn-primary">Register</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Let Your Mood Choose the Adventure</h2>
+      <p>TaraLets is your travel buddy platform. Discover trips, tours, and hidden gems here in the Philippines, based on how you feel!</p>
+
+      <button class="search-bar" onclick="window.location.href='signin.html'">
+        Get Started Now
+      </button>
+      
+      <div class="with-taralets-line">
+        <span>With TaraLets</span>
+      </div>
+
+      <div class="app-cards">
+        <!-- Let's Explore Card -->
+        <div class="app-card explore">
+          <i class="fas fa-compass"></i>
+          <div class="card-text">
+            <span>Lets Explore</span>
+            <strong>Discover new destinations and hidden gems.</strong>
+          </div>
+        </div>
+      
+        <!-- Let's Plan Card -->
+        <div class="app-card plan">
+          <i class="fas fa-map-marked-alt"></i>
+          <div class="card-text">
+            <span>Lets Plan</span>
+            <strong>Seamlessly create and customize your trips.</strong>
+          </div>
+        </div>
+      
+        <!-- Let's Go Card -->
+        <div class="app-card go">
+          <i class="fas fa-rocket"></i>
+          <div class="card-text">
+            <span>Lets Go</span>
+            <strong>Embark on unforgettable journeys with ease.</strong>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="section-title">
+      <h3>Why TaraLets?</h3>
+      <p>Personalized travel suggestions powered by mood, preferences, and smart data.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-smile-beam"></i></div>
+        <h4>Mood-Based Trips</h4>
+        <p>Feeling adventurous or mellow? TaraLets curates activities based on your emotions.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h4>Location-Aware</h4>
+        <p>Get suggestions based on where you are — or where you’re going next.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-brain"></i></div>
+        <h4>Smart Tours Matching</h4>
+        <p>Advanced algorithms learn your preferences and suggest only what fits you best.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-cloud-sun"></i></div>
+        <h4>Weather-Ready Plans</h4>
+        <p>Rain or shine, TaraLets recommends activities that suit the current conditions.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+        <h4>Budget-Friendly</h4>
+        <p>Filter suggestions based on your budget, travel companions, or duration.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-route"></i></div>
+        <h4>Map Integration</h4>
+        <p>Seamlessly plan and navigate your adventures with Google Maps integration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-title">
+      <h3>How It Works</h3>
+      <p>From mood to map in just a few taps.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h4>Set Your Mood</h4>
+        <p>Open the app, tell us how you feel, and what you’re up for.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>Get Smart Suggestions</h4>
+        <p>Analyzes your preferences, mood, location, and weather to recommend the best activities.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Customize & Explore</h4>
+        <p>Add companions, budget, or travel dates to refine your trip.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h4>Go & Enjoy</h4>
+        <p>Follow your personalized itinerary and discover something amazing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="section-title">
+      <h3>Testimonials</h3>
+      <p>See what travelers are saying about TaraLets</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>I had no idea what to do on my solo trip. TaraLets read my mood and planned the perfect day for me!</p>
+        <div class="user-info">
+          <h5>Mark Joseph</h5>
+          <p>Solo Traveler</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>It helped me and my girlfriend discover hidden spots in Cebu we never would've found on our own.</p>
+        <div class="user-info">
+          <h5>Rolito Rebillaco</h5>
+          <p>Couple on Vacation</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>We used it for our barkada trip — we had a blast doing activities we all enjoyed. No stress at all!</p>
+        <div class="user-info">
+          <h5>Krystanela Abaya</h5>
+          <p>Group Traveler</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="download" id ="footer">
+    <div class="download-content">
+      <h3>Where Will Your Mood Take You?</h3>
+      <p>Try TaraLets today and let the journey begin — based on how you feel!</p>
+      <a href="#home" class="btn btn-primary cta-large">Start Exploring</a>
+    </div>
+  </section>
+
+  <footer class="footer" id = "footer">
+    <div class="footer-top">
+        <div>
+            <h3>TARALETS</h3>
+            <p>Your ultimate travel companion for seamless and enjoyable journeys.</p>
+        </div>
+        <div class="tooltip-wrapper">
+          <ul class="tooltip-container">
+            <li class="nav-link animation-delay-1">
+              <div class="tooltip-tab">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="fill:none;"
+                  fill="none"
+                  viewBox="0 0 16 16"
+                  height="16"
+                  width="16"
+                >
+                  <path
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke="#ffffff"
+                    d="M1 10V8C1 2.5 6 1 8 1C10 1 15 2.5 15 8V10M1 10C1 10.5552 1 11.1543 1.0984 11.6204C1.24447 12.3122 2 13 3 13C4 13 4.75553 12.3122 4.9016 11.6204C5 11.1543 5 10.5552 5 10C5 9.44485 5 8.84565 4.9016 8.37961C4.75553 7.68776 4 7 3 7C2 7 1.24447 7.68776 1.0984 8.37961C1 8.84565 1 9.44485 1 10ZM15 10C15 10.5552 15 11.1543 14.9016 11.6204C14.7555 12.3122 14 13 13 13C12 13 11.2445 12.3122 11.0984 11.6204C11 11.1543 11 10.5552 11 10C11 9.44485 11 8.84565 11.0984 8.37961C11.2445 7.68776 12 7 13 7C14 7 14.7555 7.68776 14.9016 8.37961C15 8.84565 15 9.44485 15 10ZM15 10C15 15.5 12.5 15 8 15"
+                  ></path>
+                </svg>
+                Contact Us
+              </div>
+              <div class="tooltip">
+                <ul class="tooltip-menu-with-icon">
+                  <li class="tooltip-link">
+                    <a class="tooltip-links" href="#">
+                      <svg
+                        aria-hidden="true"
+                        role="img"
+                        height="16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="m4.6.7 1.6 1.7c.6.6.7 1.6 0 2.2C5 6.1 5 6.4 7.2 8.7c2.4 2.4 2.7 2.4 4.2 1 .6-.5 1.6-.5 2.2 0l1.7 1.7v.1c.6.5.6 1.5 0 2.1v.1c-1.4 1.4-2.5 2-3.8 2h-.7c-1.6-.3-3.4-1.6-6.1-4.4C-.5 6.1-1 4 2.3.7 2.9.1 3.9.1 4.6.7m-1.2.4c-.2 0-.4.1-.5.3C.1 4 .5 5.9 5.3 10.7s6.6 5.2 9.3 2.4l.2.1-.2-.1c.3-.3.3-.7.1-1L13 10.4a.7.7 0 0 0-1 0c-1.9 1.8-2.7 1.6-5.3-1C4 6.6 3.8 5.8 5.6 4c.3-.3.3-.7 0-1L3.9 1.3a.7.7 0 0 0-.5-.2"
+                          fill-rule="evenodd"
+                          fill="#FFF"
+                        ></path>
+                      </svg>
+                      09453217895
+                    </a>
+                  </li>
+                  <li class="tooltip-link">
+                    <a class="tooltip-links" href="#">
+                      <svg
+                        aria-hidden="true"
+                        role="img"
+                        viewBox="0 0 13.971 13.971"
+                        height="16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <defs></defs>
+                        <g id="support-clock_svg__clock">
+                          <path
+                            class="support-clock_svg__support-clock-cls-1"
+                            d="M6.985 13.97a6.985 6.985 0 1 1 6.986-6.985 6.993 6.993 0 0 1-6.986 6.986zm0-13.47a6.485 6.485 0 1 0 6.486 6.485A6.493 6.493 0 0 0 6.985.5"
+                          ></path>
+                          <path
+                            class="support-clock_svg__support-clock-cls-1"
+                            d="M11.1 7.235H6.986a.25.25 0 0 1-.25-.25V1.972a.25.25 0 1 1 .5 0v4.763h3.866a.25.25 0 0 1 0 .5z"
+                          ></path>
+                        </g>
+                      </svg>
+                      Anytime
+                    </a>
+                  </li>
+                  <li class="tooltip-link">
+                    <a class="tooltip-links" href="#">
+                      <svg
+                        aria-hidden="true"
+                        role="img"
+                        viewBox="0 0 18.2 13.342"
+                        height="16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          style="fill:#fff"
+                          d="M17.9 0H.3a.3.3 0 0 0-.3.3v12.742a.3.3 0 0 0 .3.3h17.6a.3.3 0 0 0 .3-.3V.3a.3.3 0 0 0-.3-.3M.85.5h16.554L9.101 6.364Zm6.983 5.576 1.124.799a.25.25 0 0 0 .29 0l1.527-1.08-.133.13 6.719 6.917H.956ZM.5 12.59V.867l6.918 4.915Zm10.533-6.978L17.7.902v11.574ZM.539.5.5.554V.5Z"
+                        ></path>
+                      </svg>
+                      taralets@gmail.com
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+    </div>
+    <div class="footer-subscribe">
+        <h3>Stay Updated with Taralets</h3>
+        <input type="email" placeholder="Enter your email"> 
+        <button>Subscribe</button>
+    </div>
+    <div class="footer-links" id="services">
+      <div id="services">
+        <h4>SERVICES</h4>
+        <ul>
+          <li><a href="promotion.html">Promotion</a></li>
+          <li><a href="tour-guides.html">Tour Guides</a></li>
+          <li><a href="exclusive-deals.html">Exclusive Deals</a></li>
+          <li><a href="gift-cards.html">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div id="support">
+        <h4>SUPPORT</h4>
+        <ul>
+          <li><a href="help-center.html">Help Center</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+          <li><a href="customer-support.html">Customer Support</a></li>
+          <li><a href="report-issue.html">Report an Issue</a></li>
+        </ul>
+      </div>
+      <div id="aboutus">
+        <h4>ABOUT US</h4>
+        <ul>
+          <li><a href="our-story.html">Our Story</a></li>
+          <li><a href="why-taralets.html">Why TaraLets?</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>        
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Taralets. All rights reserved.</p>
+      <div class="center-text">
+        <h4>Follow us in our Social Media:</h4>
+      </div></div>
+      <ul class="example-2">
+        <li class="icon-content">
+        <a
+          data-social="whatsapp"
+          aria-label="Whatsapp"
+          href="https://api.whatsapp.com/send?phone=+112067101079&amp;text=Save%20this%20to%20your%20Favorites%20-%20@wilsondesouza"
+        >
+          <div class="filled"></div>
+          <svg
+          xml:space="preserve"
+          viewBox="0 0 24 24"
+          class="bi bi-whatsapp"
+          fill="currentColor"
+          height="24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+          >
+          <path
+            fill="currentColor"
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+          ></path>
+          </svg>
+        </a>
+        
+        </li>
+        <li class="icon-content">
+        <a
+          data-social="facebook"
+          aria-label="Facebook"
+          href="https://www.facebook.com/"
+        >
+          <div class="filled"></div>
+          <svg
+          xml:space="preserve"
+          viewBox="0 0 24 24"
+          class="bi bi-facbook"
+          fill="currentColor"
+          height="24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+          >
+          <path
+            fill="currentColor"
+            d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"
+          ></path>
+          </svg>
+        </a>
+       
+        </li>
+        <li class="icon-content">
+        <a
+          data-social="instagram"
+          aria-label="Instagram"
+          href="https://www.instagram.com/"
+        >
+          <div class="filled"></div>
+          <svg
+          xml:space="preserve"
+          viewBox="0 0 16 16"
+          class="bi bi-instagram"
+          fill="currentColor"
+          height="16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+          >
+          <path
+            fill="currentColor"
+            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+          ></path>
+          </svg>
+        </a>
+        
+        </li>
+      </ul>
+    </div></ul>
+</footer>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
