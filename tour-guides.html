@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tour Guides - TaraLets</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: #f6f7ff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .back-home {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #fff;
+      color: #2d2dff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
+      z-index: 100;
+    }
+
+    .back-home:hover {
+      background: #2d2dff;
+      color: #fff;
+    }
+
+    .content-box {
+      background: #fff;
+      max-width: 1000px;
+      margin: 60px auto 30px;
+      padding: 30px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #2d2dff;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .guides-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .guide-card {
+      background-color: #1a237e;
+      color: #fff;
+      padding: 1.2rem;
+      border-radius: 14px;
+      width: 42%;
+      min-height: 180px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background-color: #0d1548;
+    }
+
+    .guide-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #ffffff;
+    }
+
+    .guide-position {
+      font-size: 0.95rem;
+      color: #c5cae9;
+      margin-bottom: 0.4rem;
+    }
+
+    .guide-description {
+      font-size: 0.9rem;
+      color: #d0d0ff;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .guide-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html#services" class="back-home">← Back to Services</a>
+
+<div class="content-box">
+  <h1>Our Tour Guides</h1>
+  <p>Meet our trusted and professional tour guides ready to assist you!</p>
+
+  <div class="guides-grid">
+    <!-- First Row -->
+    <div class="guide-card">
+      <div class="guide-name">Gabriel Cruz</div>
+      <div class="guide-position">Lead Adventure Guide</div>
+      <div class="guide-description">
+        📍 Address: Baguio City, Benguet<br>
+        📞 Contact: 0917-123-4567<br>
+        🏞️ Expertise: Mountain hiking, eco-tours<br>
+        ⏳ Experience: 7 years
+      </div>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-name">Az Martinez</div>
+      <div class="guide-position">Cultural & History Expert</div>
+      <div class="guide-description">
+        📍 Address: Vigan City, Ilocos Sur<br>
+        📞 Contact: 0918-987-6543<br>
+        🏛️ Expertise: Spanish heritage tours<br>
+        ⏳ Experience: 5 years
+      </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="guide-card">
+      <div class="guide-name">Adrian Navarro</div>
+      <div class="guide-position">Water Adventure Specialist</div>
+      <div class="guide-description">
+        📍 Address: El Nido, Palawan<br>
+        📞 Contact: 0922-555-1122<br>
+        🏝️ Expertise: Island hopping, snorkeling<br>
+        ⏳ Experience: 6 years
+      </div>
+    </div>
+
+    <div class="guide-card">
+      <div class="guide-name">Clarisse Villanueva</div>
+      <div class="guide-position">Food & Culture Guide</div>
+      <div class="guide-description">
+        📍 Address: Cebu City<br>
+        📞 Contact: 0915-789-3412<br>
+        🍴 Expertise: Food tours, local festivals<br>
+        ⏳ Experience: 4 years
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
