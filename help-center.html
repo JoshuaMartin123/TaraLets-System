@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Help Center - TaraLets</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: #f6f7ff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      color: #333;
+    }
+
+    .back-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #fff;
+      color: #2d2dff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .back-home:hover {
+      background: #2d2dff;
+      color: #fff;
+    }
+
+    .content-box {
+      background: #fff;
+      max-width: 1100px;
+      margin: 50px auto 30px;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #2d2dff;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .help-card {
+      background: #eef0ff;
+      border: 2px solid #2d2dff;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: left;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .help-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .help-title {
+      color: #2d2dff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .help-description {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html#support" class="back-home">← Back to Support</a>
+
+<div class="content-box">
+  <h1>Help Center</h1>
+
+  <div class="help-grid">
+
+    <div class="help-card">
+      <div class="help-title">How to Create an Account</div>
+      <div class="help-description">Sign up by entering your name, email, and password. Verify your email to activate your account and start exploring.</div>
+    </div>
+
+    <div class="help-card">
+      <div class="help-title">Managing Your Profile</div>
+      <div class="help-description">Easily update your personal details, travel preferences, and password through the Profile Settings section.</div>
+    </div>
+
+    <div class="help-card">
+      <div class="help-title">Resetting Your Password</div>
+      <div class="help-description">If you forgot your password, simply click "Forgot Password" during login and follow the instructions to reset it securely.</div>
+    </div>
+
+    <div class="help-card">
+      <div class="help-title">Payment and Billing</div>
+      <div class="help-description">Make secure payments and view your transaction history anytime through your Account Dashboard.</div>
+    </div>
+
+    <div class="help-card">
+      <div class="help-title">Contacting Customer Support</div>
+      <div class="help-description">If you need assistance, you can reach us via live chat or email. Our support team is available 24/7 to help you.</div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
