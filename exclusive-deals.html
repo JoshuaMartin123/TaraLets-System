@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exclusive Deals - TaraLets</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: #f6f7ff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      margin: 0;
+      color: #333;
+    }
+    .back-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #fff;
+      color: #2d2dff;
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .back-home:hover {
+      background: #2d2dff;
+      color: #fff;
+    }
+    .content-box {
+      background: #fff;
+      max-width: 1000px;
+      margin: 80px auto 30px;
+      padding: 30px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #2d2dff;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    .deals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .deal-card {
+      background: #1a237e;
+      color: white;
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .deal-card:hover {
+      background: #0d1548;
+      transform: translateY(-6px);
+    }
+    .deal-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .deal-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+    @media (max-width: 768px) {
+      .deals-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html#services" class="back-home">← Back to Services</a>
+
+<div class="content-box">
+  <h1>Exclusive Travel Deals</h1>
+  <p>Unlock special discounts and exciting offers  only at TaraLets!</p>
+
+  <div class="deals-grid">
+    <!-- First Row -->
+    <div class="deal-card">
+      <div class="deal-icon">✈️</div>
+      <div class="deal-title">50% OFF Island Hopping Tours</div>
+    </div>
+
+    <div class="deal-card">
+      <div class="deal-icon">🏖️</div>
+      <div class="deal-title">Buy 1 Take 1: Baguio City Tours</div>
+    </div>
+
+    <div class="deal-card">
+      <div class="deal-icon">🚗</div>
+      <div class="deal-title">Free Van Transfer for Cebu Tours</div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="deal-card">
+      <div class="deal-icon">🏨</div>
+      <div class="deal-title">Hotel Stay Discounts for Palawan Trips</div>
+    </div>
+
+    <div class="deal-card">
+      <div class="deal-icon">🛳️</div>
+      <div class="deal-title">30% OFF Island Cruise Packages</div>
+    </div>
+
+    <div class="deal-card">
+      <div class="deal-icon">👨‍👩‍👧‍👦</div>
+      <div class="deal-title">Special Group Promo (4 Pax and Up!)</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
