@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FAQs - TaraLets</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: #f6f7ff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+
+    .back-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #fff;
+      color: #2d2dff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .back-home:hover {
+      background: #2d2dff;
+      color: #fff;
+    }
+
+    .content-box {
+      background: #fff;
+      max-width: 900px;
+      margin: 60px auto 30px;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #2d2dff;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .faq-note {
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      color: #666;
+      text-align: center;
+    }
+
+    .faq-item {
+      background: #eef0ff;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question {
+      padding: 15px 20px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #2d2dff;
+      font-size: 1.05rem;
+    }
+
+    .faq-answer {
+      padding: 0 20px 20px 20px;
+      display: none;
+      font-size: 1rem;
+      color: #555;
+      font-weight: 600;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .arrow {
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .arrow {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html#support" class="back-home">← Back to Support</a>
+
+<div class="content-box">
+  <h1>Frequently Asked Questions</h1>
+
+  <!-- Short Note after the title -->
+  <div class="faq-note">
+    Find quick answers to common questions about TaraLets.
+  </div>
+
+  <!-- FAQ List -->
+  <div class="faq-item">
+    <div class="faq-question">
+      How do I book a tour on TaraLets?
+      <span class="arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      Simply log in, select a mood, view suggestions, and book your preferred tour directly from your dashboard.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      Can I customize my suggested itinerary?
+      <span class="arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      Yes! You can add companions, budget, destinations, and even rearrange activities easily.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      Is TaraLets free to use?
+      <span class="arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      Absolutely! Browsing and using TaraLets is free. Some tours may have booking fees handled by partner providers.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      How do I find tours that match my budget?
+      <span class="arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      Use our smart filter feature based on your preferred budget when setting up your mood or preferences.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      What happens if I cancel a booked trip?
+      <span class="arrow">▼</span>
+    </div>
+    <div class="faq-answer">
+      Cancellation policies vary by tour provider. Check the specific provider’s policy before booking.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
+  });
+</script>
+
+</body>
+</html>
